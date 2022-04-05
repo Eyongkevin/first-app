@@ -23,14 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx src",
-    "lint:fix": "eslint --ext .tsx, .ts --fix src",
-    "jest-test": "jest src"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm jest-test"
-    }
+    "lint:fix": "eslint --ext .tsx --fix src",
+    "jest-test": "jest src",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +59,13 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "husky": "^7.0.4"
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.7"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "yarn test --watchAll=false --findRelatedTests"
+    ]
   }
 }

@@ -14,7 +14,7 @@ interface IPerson {
 //     isLegal?: boolean;
 // };
 
-const Customer = (props: IPerson) => {
+function Customer(props: IPerson) {
   const { firstName, lastName, age } = props
   const attrs = {
     className: 'tem',

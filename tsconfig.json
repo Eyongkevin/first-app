@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "exclude": ["node_modules", "types"],

@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 type TIssue = {
@@ -6,50 +6,35 @@ type TIssue = {
   title: string
   state: string
 }
-type IProps = unknown
-type IState = {
-  issues: TIssue[]
-}
 
-class Issues extends Component<IProps, IState> {
-  constructor(props: IProps) {
-    super(props)
+function Issues() {
+  const [issues, setIssues] = useState<TIssue[]>([])
 
-    this.state = {
-      issues: []
-    }
-  }
-
-  componentDidMount() {
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     axios.get('https://api.github.com/repos/ContentPI/ContentPI/issues').then((response: any) => {
-      this.setState({
-        issues: response.data
-      })
+      setIssues(response.data)
     })
-  }
+  }, []) // componentDidMount
 
-  render() {
-    const { issues = [] } = this.state
+  return (
+    <>
+      <h1>ContentPI Issues</h1>
 
-    return (
-      <>
-        <h1>ContentPI Issues</h1>
-
-        {issues.map((issue: TIssue) => (
-          <p key={issue.title}>
-            <strong>#{issue.number}</strong>{' '}
-            <a
-              href={`https://github.com/ContentPI/ContentPI/issues/${issue.number}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {issue.title}
-            </a>{' '}
-            {issue.state}
-          </p>
-        ))}
-      </>
-    )
-  }
+      {issues.map((issue: TIssue) => (
+        <p key={issue.title}>
+          <strong>#{issue.number}</strong>{' '}
+          <a
+            href={`https://github.com/ContentPI/ContentPI/issues/${issue.number}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {issue.title}
+          </a>{' '}
+          {issue.state}
+        </p>
+      ))}
+    </>
+  )
 }
 export default Issues

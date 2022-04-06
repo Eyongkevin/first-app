@@ -3,6 +3,7 @@ import renderIf from 'render-if'
 import './App.css'
 
 import Customer from './components/Customer'
+import Issues from './components/Issue'
 
 function App() {
   const [title, setTitle] = useState<string>('Practical React Enterprise')
@@ -46,6 +47,7 @@ function App() {
         <button onClick={() => handleCounter('add')}>Add</button>
         <button onClick={() => handleCounter('subtract')}>Subtract</button>
       </p>
+      <Issues />
     </div>
   )
 }

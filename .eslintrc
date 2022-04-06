@@ -60,7 +60,9 @@
     "jsx-a11y/label-has-associated-control": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-prototype-builtins": "off",
+    "react/react-in-jsx-scope": "off", // react object shouldn't be obligatory to work with jsx.
     "no-nested-ternary": "off",
+    "react/button-has-type": "off",
     "prettier/prettier": [
       "error",
       {

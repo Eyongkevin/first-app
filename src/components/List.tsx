@@ -12,7 +12,7 @@ interface IProps {
 
 const List: FC<IProps> = ({ todoList }) => {
   useEffect(() => {
-    console.log('Rendering <List />')
+    // console.log('Rendering <List />')
   })
 
   return (

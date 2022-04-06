@@ -7,7 +7,7 @@ interface IProps {
 
 const Task: FC<IProps> = ({ task, id }) => {
   useEffect(() => {
-    console.log('Rendering <Task />', task, id)
+    // console.log('Rendering <Task />', task, id)
   })
 
   return <li>{task}</li>

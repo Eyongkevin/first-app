@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, memo } from 'react'
 
 interface IProps {
   id: number
@@ -8,9 +8,9 @@ interface IProps {
 const Task: FC<IProps> = ({ task, id }) => {
   useEffect(() => {
     console.log('Rendering <Task />', task, id)
-  }, [])
+  })
 
   return <li>{task}</li>
 }
 
-export default Task
+export default memo(Task)

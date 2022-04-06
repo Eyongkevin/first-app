@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, memo } from 'react'
 import Task from './Task'
 
 export type TTodo = {
@@ -13,7 +13,7 @@ interface IProps {
 const List: FC<IProps> = ({ todoList }) => {
   useEffect(() => {
     console.log('Rendering <List />')
-  }, [])
+  })
 
   return (
     <ul>
@@ -24,4 +24,4 @@ const List: FC<IProps> = ({ todoList }) => {
   )
 }
 
-export default List
+export default memo(List)

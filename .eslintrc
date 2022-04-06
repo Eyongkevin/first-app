@@ -63,6 +63,7 @@
     "react/react-in-jsx-scope": "off", // react object shouldn't be obligatory to work with jsx.
     "no-nested-ternary": "off",
     "react/button-has-type": "off",
+    "react/function-component-definition": "off",
     "prettier/prettier": [
       "error",
       {

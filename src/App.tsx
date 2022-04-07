@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import List, { TTodo } from './components/List'
+import Note from './components/Note'
 
 const initialTodos = [
   { id: 1, task: 'Go shopping' },
@@ -58,6 +59,7 @@ function App() {
       <button onClick={handleCreate}>Create</button>
       <button onClick={handleSearch}>Search</button>
       <List todoList={filteredTodoList} handleDelete={handleDelete} />
+      <Note />
     </>
   )
 }

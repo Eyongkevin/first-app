@@ -8,9 +8,10 @@ export type TTodo = {
 
 interface IProps {
   todoList: TTodo[]
+  handleDelete: unknown
 }
 
-const List: FC<IProps> = ({ todoList }) => {
+const List: FC<IProps> = ({ todoList, handleDelete }) => {
   useEffect(() => {
     // console.log('Rendering <List />')
   })
@@ -18,7 +19,7 @@ const List: FC<IProps> = ({ todoList }) => {
   return (
     <ul>
       {todoList.map((todo: TTodo) => (
-        <Task key={todo.id} id={todo.id} task={todo.task} />
+        <Task key={todo.id} id={todo.id} task={todo.task} handleDelete={handleDelete} />
       ))}
     </ul>
   )

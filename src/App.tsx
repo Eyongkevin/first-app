@@ -12,8 +12,8 @@ function App() {
   const [term, setTerm] = useState<string>('')
 
   useEffect(() => {
-    console.log('Rendering <App />')
-  })
+    printTodoList()
+  }, [todoList])
 
   const handleCreate = () => {
     if (task.length === 0) {
@@ -26,6 +26,19 @@ function App() {
     setTodoList([...todoList, newTodo])
     setTask('')
   }
+  // mostly used with callback functions that will be sent in a nested child component
+  const handleDelete = useCallback(
+    (taskId: number) => {
+      const newTodoList = todoList.filter((todo: TTodo) => todo.id !== taskId)
+      setTodoList(newTodoList)
+    },
+    [todoList]
+  )
+
+  // Used when we want to manipulating the state in a function passed as argument to the useEffect
+  const printTodoList = useCallback(() => {
+    console.log('Changing todoList: ', todoList)
+  }, todoList)
 
   const handleSearch = () => {
     setTerm(task)
@@ -34,7 +47,7 @@ function App() {
   const filteredTodoList = useMemo(
     () =>
       todoList.filter((todo: TTodo) => {
-        console.log('Filtering..')
+        // console.log('Filtering..')
         return todo.task.toLowerCase().includes(term.toLocaleLowerCase())
       }),
     [term, todoList]
@@ -44,7 +57,7 @@ function App() {
       <input type="text" value={task} onChange={e => setTask(e.target.value)} />
       <button onClick={handleCreate}>Create</button>
       <button onClick={handleSearch}>Search</button>
-      <List todoList={filteredTodoList} />
+      <List todoList={filteredTodoList} handleDelete={handleDelete} />
     </>
   )
 }

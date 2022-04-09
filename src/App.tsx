@@ -14,6 +14,8 @@ type TChildren = {
 }
 const Button = ({ callBack, children }: TChildren) => <button onClick={callBack}>{children}</button>
 
+const BuildHeader = ({ children }: { children: any }) => children('React')
+
 function App() {
   const [todoList, setTodoList] = useState<TTodo[]>(initialTodos)
   const [task, setTask] = useState<string>('')
@@ -63,6 +65,7 @@ function App() {
 
   return (
     <>
+      <BuildHeader>{(title: string) => <h1>{title}</h1>}</BuildHeader>
       <input type="text" value={task} onChange={e => setTask(e.target.value)} />
       <button onClick={handleCreate}>Create</button>
       <Button callBack={handleSearch}>Search</Button>

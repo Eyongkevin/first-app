@@ -67,6 +67,7 @@ function App() {
       <Button callBack={handleSearch}>Search</Button>
       <List todoList={filteredTodoList} handleDelete={handleDelete} />
       <Note />
+      <Geolocation />
     </>
   )
 }

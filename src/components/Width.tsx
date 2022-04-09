@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 // HOC = Higher Order Component
-const withInnerWidth = (Component: any) => (props: JSX.IntrinsicAttributes) => {
+const withInnerWidth = (Component: any) => (props: any) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth)
 
   const handleResize = () => {

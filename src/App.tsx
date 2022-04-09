@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import List, { TTodo } from './components/List'
 import Note from './components/Note'
-import Geolocation from './components/Geolocation'
+import GeolocationContainer from './components/GeolocationContainer'
 
 const initialTodos = [
   { id: 1, task: 'Go shopping' },
@@ -67,7 +67,7 @@ function App() {
       <Button callBack={handleSearch}>Search</Button>
       <List todoList={filteredTodoList} handleDelete={handleDelete} />
       <Note />
-      <Geolocation />
+      <GeolocationContainer />
     </>
   )
 }

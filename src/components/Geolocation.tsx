@@ -1,24 +1,10 @@
-import { useState, useEffect } from 'react'
+import React, { FC } from 'react'
 
-const Geolocation = () => {
-  const [lat, setLatitude] = useState<number | null>(null)
-  const [long, setLongitude] = useState<number | null>(null)
-
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(handleSuccess)
-    }
-  }, [])
-
-  const handleSuccess = ({
-    coords: { latitude, longitude }
-  }: {
-    coords: { latitude: number; longitude: number }
-  }) => {
-    setLatitude(latitude)
-    setLongitude(longitude)
-  }
-
+type TCoords = {
+  lat: number | null
+  long: number | null
+}
+const Geolocation: FC<TCoords> = ({ lat, long }) => {
   return (
     <div>
       <h1>Geolocation</h1>

@@ -1,11 +1,17 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import List, { TTodo } from './components/List'
 import Note from './components/Note'
+import Geolocation from './components/Geolocation'
 
 const initialTodos = [
   { id: 1, task: 'Go shopping' },
   { id: 2, task: 'Pay the electricity bill' }
 ]
+type TChildren = {
+  callBack: any
+  children: JSX.Element | JSX.Element[] | string
+}
+const Button = ({ callBack, children }: TChildren) => <button onClick={callBack}>{children}</button>
 
 function App() {
   const [todoList, setTodoList] = useState<TTodo[]>(initialTodos)
@@ -53,11 +59,12 @@ function App() {
       }),
     [term, todoList]
   )
+
   return (
     <>
       <input type="text" value={task} onChange={e => setTask(e.target.value)} />
       <button onClick={handleCreate}>Create</button>
-      <button onClick={handleSearch}>Search</button>
+      <Button callBack={handleSearch}>Search</Button>
       <List todoList={filteredTodoList} handleDelete={handleDelete} />
       <Note />
     </>

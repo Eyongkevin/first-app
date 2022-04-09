@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react'
 import List, { TTodo } from './components/List'
 import Note from './components/Note'
 import GeolocationContainer from './components/GeolocationContainer'
+import MyComponentWithInnerWidth from './components/Width'
 
 const initialTodos = [
   { id: 1, task: 'Go shopping' },
@@ -68,6 +69,7 @@ function App() {
       <List todoList={filteredTodoList} handleDelete={handleDelete} />
       <Note />
       <GeolocationContainer />
+      <MyComponentWithInnerWidth />
     </>
   )
 }

@@ -64,6 +64,7 @@
     "no-nested-ternary": "off",
     "react/button-has-type": "off",
     "react/function-component-definition": "off",
+    "react/jsx-no-constructed-context-values": "off",
     "prettier/prettier": [
       "error",
       {

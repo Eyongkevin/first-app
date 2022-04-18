@@ -8,8 +8,10 @@ const initialTodos = [
   { id: 1, task: 'Go shopping' },
   { id: 2, task: 'Pay the electricity bill' }
 ]
+type IHandleSearch = () => void
+
 type TChildren = {
-  callBack: any
+  callBack: IHandleSearch
   children: JSX.Element | JSX.Element[] | string
 }
 const Button = ({ callBack, children }: TChildren) => <button onClick={callBack}>{children}</button>
